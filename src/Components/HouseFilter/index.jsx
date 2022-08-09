@@ -11,7 +11,7 @@ export const HouseFilter = ({ allHouses }) => {
 
   const onSearchChange = (e) =>{
     const country = e.target.value;
-    history.push(`/searchresults/${country}`)
+    history(`/searchresults/${country}`)
   }
 
   return (
@@ -20,7 +20,7 @@ export const HouseFilter = ({ allHouses }) => {
         Look for your dream house in country:
       </div>
       <div className="col-md-4 mb-3">
-        <select className="form-select" onChange={onSearchChange}>
+        <select name="houseFilter" className="form-select" onChange={onSearchChange}>
           {countries.map((c) => (
             <option key={c} value={c}>
               {c}
