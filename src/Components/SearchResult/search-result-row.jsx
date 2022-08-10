@@ -1,10 +1,15 @@
+import { useNavigate } from 'react-router';
 import './search-result-row.css';
 
 export const SearchResultRow = ({house}) =>{
-  const setActive = () => {};
+  const history = useNavigate();
+
+  const redirectToHouse = () => {
+    history(`/house/${house.id}`)
+  };
 
   return(
-    <tr onClick={setActive}>
+    <tr onClick={redirectToHouse}>
       <td>{house.address}</td>
       <td>{house.price}</td>
       <td>{house.likes}</td>
