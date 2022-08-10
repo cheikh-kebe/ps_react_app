@@ -4,11 +4,12 @@ import { houses } from "../houses"
 import { Header } from "../Components/Header";
 import { FeaturedHouse } from "../Components/FeaturedHouse";
 import { HouseFilter } from "../Components/HouseFilter"
+import { HouseQueried } from "../Components/House/HouseQueried";
+import { Searchresult } from "../Components/SearchResult";
 //styles
 import "./App.css";
 //router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Searchresult } from "../Components/SearchResult";
 
 export const App = () => {
   const [state, setState] = useState([]);
@@ -33,6 +34,7 @@ export const App = () => {
         <Routes>
           <Route path="/" exact element={<FeaturedHouse house={featuredHouse}/>}/>
           <Route path="/searchresults/:country" element={<Searchresult allHouses={houses}/>}/>
+          <Route path="/house/:id" element={<HouseQueried allHouses={houses}/>}/>          
         </Routes>
       </div>
     </Router>
