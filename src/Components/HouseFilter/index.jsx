@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router';
 
 export const HouseFilter = ({ allHouses }) => {
   const history = useNavigate()
-  const countries = allHouses 
-  ? Array.from(new Set(allHouses.map((h) => h.country))) 
-  : [];
+
+  const countries = allHouses ? Array.from(new Set(allHouses.map((h) => h.country))) : [];
   countries.unshift(null)
 
   const onSearchChange = (e) =>{
