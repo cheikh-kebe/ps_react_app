@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router';
 //components
-import { SearchResultRow } from './search-result-row';
+import { SearchResultRow } from './search-result-row.jsx';
 
 export const Searchresult = ({allHouses}) => {
   const { country } = useParams();
