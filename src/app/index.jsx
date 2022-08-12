@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React from "react";
 import { houses } from "../houses"
 //Components
 import { Header } from "../Components/Header";
@@ -10,20 +10,13 @@ import { Searchresult } from "../Components/SearchResult";
 import "./App.css";
 //router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//hooks
+import  { useHouses }  from "../Hooks/useHouses";
+import { useFeaturedHouse } from "../Hooks/useFeaturedHouse";
 
 export const App = () => {
-  const [state, setState] = useState([]);
-//Fetch houses from Json file
-  useEffect(() => {
-    setState(houses)
-  }, [])
-
-  const featuredHouse = useMemo(() => {
-    if (state.length) {
-      const randomIndex = Math.floor(Math.random() * state.length);
-      return state[randomIndex]
-    }
-  }, [state])
+  const { state } = useHouses()
+  const { featuredHouse } = useFeaturedHouse(state)
 
 
   return (
