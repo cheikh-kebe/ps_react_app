@@ -4,7 +4,7 @@ import house3 from "../src/assets/images/259600.jpeg";
 import house4 from "../src/assets/images/534182.jpeg";
 import house5 from "../src/assets/images/164558.jpeg";
 
-export const houses = [
+export const AllHouses = [
     {
         "id": 1,
         "address": "12 Valley of Kings, Geneva",

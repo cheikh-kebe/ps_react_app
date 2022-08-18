@@ -1,5 +1,5 @@
 import React from "react";
-import { houses } from "../houses"
+import { AllHouses } from "../houses"
 //Components
 import { Header } from "../Components/Header";
 import { FeaturedHouse } from "../Components/FeaturedHouse";
@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //hooks
 import  { useHouses }  from "../Hooks/useHouses";
 import { useFeaturedHouse } from "../Hooks/useFeaturedHouse";
+//context
+import { HouseContext } from "../Context/houseContext";
 
 export const App = () => {
   const { state } = useHouses()
@@ -21,15 +23,17 @@ export const App = () => {
 
   return (
     <Router>
-      <div className="container">
-        <Header subtitle='Providing houses all over the world!' />
-        <HouseFilter allHouses={houses} />
-        <Routes>
-          <Route path="/" exact element={<FeaturedHouse house={featuredHouse}/>}/>
-          <Route path="/searchresults/:country" element={<Searchresult allHouses={houses}/>}/>
-          <Route path="/house/:id" element={<HouseQueried allHouses={houses}/>}/>          
-        </Routes>
-      </div>
+      <HouseContext.Provider value={AllHouses}>
+        <div className="container">
+          <Header subtitle='Providing houses all over the world!' />
+          <HouseFilter />
+          <Routes>
+            <Route path="/" exact element={<FeaturedHouse house={featuredHouse}/>}/>
+            <Route path="/searchresults/:country" element={<Searchresult />}/>
+            <Route path="/house/:id" element={<HouseQueried />}/>          
+          </Routes>
+        </div>
+      </HouseContext.Provider>
     </Router>
   );
 };
