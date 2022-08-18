@@ -1,9 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useParams } from 'react-router';
 import { House } from '.';
+import { HouseContext } from '../../Context/houseContext';
 
 
-export const HouseQueried = ({ allHouses }) => {
+export const HouseQueried = () => {
+  const allHouses = useContext(HouseContext)
   //useParams the id of the house 
   const { id } = useParams();
   //define house from allHouses where house.id === id from useParams
