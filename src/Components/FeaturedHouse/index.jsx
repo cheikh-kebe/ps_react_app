@@ -7,7 +7,7 @@ export const FeaturedHouse = ({house}) => {
   return (
     <div>
       <div className="row featuredHouse">
-        <h3 className="col-md-12">Featured House</h3>
+        <h3 className="col-md-12">Featured House for the week!!!</h3>
       </div>
       <House house={house} />
     </div>
